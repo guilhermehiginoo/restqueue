@@ -5,12 +5,13 @@ void anotarPedido(Pedido **cabeca, char *prato)
 {
   Pedido *novoPedido = malloc(sizeof(Pedido));
   int i = 0;
-    while (prato[i] != '\0' && i < (int)sizeof(novoPedido->prato) - 1) {
-        novoPedido->prato[i] = prato[i];
-        i++;
-    }
-    novoPedido->prato[i] = '\0';
-    novoPedido->proximo = NULL;
+  while (prato[i] != '\0' && i < (int)sizeof(novoPedido->prato) - 1)
+  {
+    novoPedido->prato[i] = prato[i];
+    i++;
+  }
+  novoPedido->prato[i] = '\0';
+  novoPedido->proximo = NULL;
 
   if (*cabeca == NULL)
   {
@@ -40,8 +41,29 @@ void cancelarPedido(Pedido **cabeca, char prato)
   Pedido *anterior = NULL;
   Pedido *atual = *cabeca;
 
-  while (atual != NULL && atual->prato != prato)
+  while (atual != NULL)
   {
+    int i = 0;
+    int igual = 1;
+    while (atual->prato[i] != '\0' && prato[i] != '\0')
+    {
+      if (atual->prato[i] != prato[i])
+      {
+        igual = 0;
+        break;
+      }
+      i++;
+    }
+    if (atual->prato[i] != prato[i])
+    {
+      igual = 0;
+    }
+
+    if (igual)
+    {
+      break;
+    }
+
     anterior = atual;
     atual = atual->proximo;
   }
@@ -76,7 +98,7 @@ void exibirPedidos(Pedido *cabeca)
 
   while (atual != NULL)
   {
-    printf("%d ", atual->prato);
+    printf("%s ", atual->prato);
     atual = atual->proximo;
   }
   printf("\n");
