@@ -29,61 +29,43 @@ void anotarPedido(Pedido **cabeca, char *prato)
   atual->proximo = novoPedido;
 }
 
-// Função de remoção em uma posição intermediária da lista.
-void cancelarPedido(Pedido **cabeca, char prato)
+void cancelarPedido(Pedido **cabeca, char *prato)
 {
-  if (*cabeca == NULL)
-  {
-    printf("Lista vazia!\n");
-    return;
-  }
-
-  Pedido *anterior = NULL;
-  Pedido *atual = *cabeca;
-
-  while (atual != NULL)
-  {
-    int i = 0;
-    int igual = 1;
-    while (atual->prato[i] != '\0' && prato[i] != '\0')
+    if (*cabeca == NULL)
     {
-      if (atual->prato[i] != prato[i])
-      {
-        igual = 0;
-        break;
-      }
-      i++;
-    }
-    if (atual->prato[i] != prato[i])
-    {
-      igual = 0;
+        printf("Lista vazia!\n");
+        return;
     }
 
-    if (igual)
+    Pedido *anterior = NULL;
+    Pedido *atual = *cabeca;
+
+    while (atual != NULL)
     {
-      break;
+        if (strcmp(atual->prato, prato) == 0)
+        {
+            break;
+        }
+        anterior = atual;
+        atual = atual->proximo;
     }
 
-    anterior = atual;
-    atual = atual->proximo;
-  }
+    if (atual == NULL)
+    {
+        printf("Pedido não foi feito!\n");
+        return;
+    }
 
-  if (atual == NULL)
-  {
-    printf("Pedido não foi feito!\n");
-    return;
-  }
+    if (anterior == NULL)
+    {
+        *cabeca = atual->proximo;
+    }
+    else
+    {
+        anterior->proximo = atual->proximo;
+    }
 
-  if (anterior == NULL)
-  {
-    *cabeca = atual->proximo;
-  }
-  else
-  {
-    anterior->proximo = atual->proximo;
-  }
-
-  free(atual);
+    free(atual);
 }
 
 void exibirPedidos(Pedido *cabeca)
