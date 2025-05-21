@@ -13,7 +13,7 @@ typedef struct pedido {
 
 typedef struct pedido Pedido;
 
-  
+void criarListaPedidos();
 void exibirPedidos(Pedido *cabeca);
 void anotarPedido(Pedido **cabeca, char *prato);
 void cancelarPedido(Pedido **cabeca, char *prato);
