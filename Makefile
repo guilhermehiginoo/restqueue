@@ -1,6 +1,6 @@
 all: restqueue
 
-restqueue: main.o filaCozinha.o listaPedidos.o
+restqueue: main.o filaCozinha.o listaPedidos.o cardapio.o
 	gcc -Wall -Wextra -std=c11 main.o filaCozinha.o listaPedidos.o cardapio.o -o restqueue
 
 main.o: main.c
