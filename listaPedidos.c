@@ -91,7 +91,7 @@ void exibirPedidos(Pedido *cabeca)
 
   while (atual != NULL)
   {
-    printf("%d - %s\n", atual->prato);
+    printf("%d - %s\n", j, atual->prato);
     atual = atual->proximo;
     j++;
   }
