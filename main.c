@@ -111,6 +111,10 @@ int main()
         }
         case 0:
             printf("Encerrando...\n");
+            limparListaPedidos(&cabeca);
+            limparFilaCozinha(&f);
+            printf("Todos os pedidos foram cancelados. Até logo!\n");
+            printf("Agradecemos pela sua visita!\n");
             return 0;
         default:
             printf("Opção inválida. Tente novamente.\n");
