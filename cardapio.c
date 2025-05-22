@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <string.h>
-
 void exibirCardapio(){
     printf("====== CARDÁPIO ======\n");
     printf("- Entradas - \n");
