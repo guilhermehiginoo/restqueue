@@ -69,3 +69,7 @@ void processa_fila(Fila *fila, Pedido *lista) {
         lista = lista->proximo;
     }
 }
+
+void limparFilaCozinha(Fila *fila) {
+    fila->tamanho = 0;
+}

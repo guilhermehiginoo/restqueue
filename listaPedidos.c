@@ -1,7 +1,5 @@
 #include "listaPedidos.h"
 
-// Função de inserção Pedido fim da lista.
-
 void criarListaPedidos()
 {
   Pedido *cabeca = NULL;
@@ -35,43 +33,36 @@ void anotarPedido(Pedido **cabeca, char *prato)
   atual->proximo = novoPedido;
 }
 
-void cancelarPedido(Pedido **cabeca, char *prato)
+void cancelarPedido(Pedido **cabeca, int indice)
 {
-  if (*cabeca == NULL)
-  {
-    printf("Lista vazia!\n");
-    return;
-  }
-
-  Pedido *anterior = NULL;
-  Pedido *atual = *cabeca;
-
-  while (atual != NULL)
-  {
-    if (strcmp(atual->prato, prato) == 0)
-    {
-      break;
+    if (*cabeca == NULL) {
+        printf("Lista vazia!\n");
+        return;
     }
-    anterior = atual;
-    atual = atual->proximo;
-  }
 
-  if (atual == NULL)
-  {
-    printf("Pedido não foi feito!\n");
-    return;
-  }
+    Pedido *anterior = NULL;
+    Pedido *atual = *cabeca;
+    int i = 1;
 
-  if (anterior == NULL)
-  {
-    *cabeca = atual->proximo;
-  }
-  else
-  {
-    anterior->proximo = atual->proximo;
-  }
+    while (atual != NULL && i < indice) {
+        anterior = atual;
+        atual = atual->proximo;
+        i++;
+    }
 
-  free(atual);
+    if (atual == NULL) {
+        printf("Pedido não encontrado!\n");
+        return;
+    }
+
+    if (anterior == NULL) {
+        *cabeca = atual->proximo;
+    } else {
+        anterior->proximo = atual->proximo;
+    }
+
+    printf("Pedido removido: %s\n", atual->prato);
+    free(atual);
 }
 
 void exibirPedidos(Pedido *cabeca)
@@ -97,4 +88,14 @@ void exibirPedidos(Pedido *cabeca)
   }
 
   printf("-----------\n");
+}
+
+void limparListaPedidos(Pedido **cabeca) {
+    Pedido *atual = *cabeca;
+    while (atual != NULL) {
+        Pedido *prox = atual->proximo;
+        free(atual);
+        atual = prox;
+    }
+    *cabeca = NULL;
 }
