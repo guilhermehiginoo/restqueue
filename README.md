@@ -33,3 +33,24 @@ Utilize o `Makefile` para compilar e executar o projeto:
 make        # compila o programa
 make run    # executa o programa
 make clean  # remove arquivos gerados pela compilação
+```
+
+## 📋 Menu Interativo
+
+O programa exibe um menu no terminal que permite gerenciar pedidos de um restaurante, com integração entre salão e cozinha. Abaixo estão as opções disponíveis no menu:
+
+### 🧾 Menu
+
+```text
+====== MENU ======
+1. Adicionar pedido
+2. Processar fila
+3. Cancelar pedido
+4. Cancelar todos os pedidos. CANCELAAAAAA TUDO!
+5. Listar pedidos do salão
+6. Mostrar fila da cozinha
+7. Perguntar ao garçom se já está pronto...
+0. Sair
+```
+
+**obs: a opção 7 aparecerá somente quando a fila da cozinha não estiver vazia**
