@@ -53,20 +53,18 @@ void exibir_fila(Fila* fila)
 // Mecanismo importante para o projeto
 // Processa a fila de pedidos, copiando os pratos da lista de pedidos para a fila
 void processa_fila(Fila *fila, Pedido *lista) {
-  // Enquanto a lista não for nula, ou seja, enquanto não for vazia
+    // Enquanto a lista não for nula
     while (lista != NULL) {
-        int pratoTamanho = strlen(lista->prato);
-        // strlen retorna o tamanho da string, ou seja, o número de caracteres
-        memcpy(&fila->dados[fila->tamanho], lista->prato, pratoTamanho);
-        // memcpy copia blocos de memória, de forma que memcpy(destino, origem, tamanho)
-        // Copia o prato da lista para a fila
-        fila->tamanho += pratoTamanho;
-        // Incrementa o tamanho da fila pelo tamanho do prato
-        // Adiciona um caractere de nova linha para separar os pratos
-        // Isso é importante para que o usuário saiba onde começa e termina cada prato
+        int i = 0;
+        // Copia os caracteres do prato um a um
+        while (lista->prato[i] != '\0') {
+            fila->dados[fila->tamanho++] = lista->prato[i++];
+        }
+        // Adiciona uma nova linha após cada prato
         fila->dados[fila->tamanho++] = '\n';
-        // Avança para o próximo pedido na lista
+        // Avança para o próximo pedido
         lista = lista->proximo;
+        
     }
 }
 
