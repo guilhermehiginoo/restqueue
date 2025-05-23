@@ -2,7 +2,7 @@
 
 ## Descrição
 
-Este projeto implementa um sistema básico para gerenciar os pedidos de um restaurante.  
+Este projeto feito na faculdade implementa um sistema básico para gerenciar os pedidos de um restaurante.  
 Os pedidos são inicialmente armazenados em uma **lista ligada** (representando o salão) e, posteriormente, processados pela cozinha em ordem de chegada utilizando uma **fila**.  
 
 A aplicação é desenvolvida em linguagem C, utilizando estruturas dinâmicas para manipulação eficiente dos dados.
