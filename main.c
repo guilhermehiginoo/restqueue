@@ -8,23 +8,19 @@ int main()
     // Inicializa a lista
     Pedido *cabeca = NULL;
     // Inicializa a fila
-    Fila f;
-    inicializar_fila(&f);
+    Fila filas[TAMANHO_MAX];
+    int count = 1;
     int input;
     // Loop infinito do menu
     while (1)
     {
         printf("\n====== MENU ======\n");
         printf("1. Adicionar pedido\n");
-        printf("2. Processar fila\n");
+        printf("2. Enviar pedidos para cozinha\n");
         printf("3. Cancelar pedido\n");
         printf("4. Cancelar todos os pedidos. CANCELAAAAAA TUDO!\n");
         printf("5. Listar pedidos do salão\n");
         printf("6. Mostrar fila da cozinha\n");
-        if (f.tamanho > 0)
-        {
-            printf("7. Perguntar ao garçom se já está pronto...\n");
-        }
         printf("0. Sair\n");
         printf("===================\n");
         printf("Escolha uma opção: \n");
@@ -53,11 +49,14 @@ int main()
                 printf("Nenhum pedido para cozinhar!\n");
                 break;
             }
-
-            printf("Pedidos enviados para o cozinheiro! Aguarde...\n");
+            Fila f;
+            inicializar_fila(&f);
             processa_fila(&f, cabeca);
-            // limparListaPedidos(&cabeca);
-
+            filas[count] = f;
+            printf("Pedidos enviados para o cozinheiro! Aguarde...\n");
+            limparListaPedidos(&cabeca);
+            limparFilaCozinha(&f);
+            count++;
             break;
         case 3:
         {
@@ -75,6 +74,7 @@ int main()
         {
             printf("Cancelando todos os pedidos...\n");
             limparListaPedidos(&cabeca);
+            break;
         }
 
         case 5:
@@ -85,27 +85,10 @@ int main()
         }
         case 6:
         {
-            printf("Pedidos pendentes (cozinha):\n");
-            exibir_fila(&f);
-            break;
-        }
-        case 7:
-        {
-            if (f.tamanho > 0)
-            {
-                printf("Pedido pronto!\n");
-                printf("Aqui está o seu pedido: \n");
-                for (int i = 0; i < f.tamanho; i++)
-                {
-                    printf("%c", f.dados[i]);
-                }
-                printf("\n");
-                limparFilaCozinha(&f);
-                printf("Deseja mais alguma coisa?\n");
-            }
-            else
-            {
-                printf("Nenhum pedido pronto!\n");
+            printf("Pedidos pendentes (cozinha):\n\n");
+            for (int i = 1; i < count; i++){
+                printf("Pedido %d:\n", i);
+                exibir_fila(&filas[i]);
             }
             break;
         }
@@ -113,7 +96,6 @@ int main()
             printf("Encerrando...\n");
             limparListaPedidos(&cabeca);
             limparFilaCozinha(&f);
-            printf("Todos os pedidos foram cancelados. Até logo!\n");
             printf("Agradecemos pela sua visita!\n");
             return 0;
         default:

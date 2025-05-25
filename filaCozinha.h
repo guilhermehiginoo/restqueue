@@ -16,10 +16,10 @@ typedef struct {
     int tamanho;
 } Fila;
 
+
 void inicializar_fila(Fila* fila);
 int fila_vazia(Fila* fila);
 int fila_cheia(Fila* fila);
-void inserir_fila(Fila* fila, char prato);
 void exibir_fila(Fila* fila);
 void processa_fila(Fila *fila, Pedido *lista);
 void limparFilaCozinha(Fila *fila);

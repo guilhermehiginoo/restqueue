@@ -20,18 +20,6 @@ int fila_cheia(Fila* fila)
   return fila->tamanho == TAMANHO_MAX;
 }
 
-// Insere um prato no fim da fila, seguindo o FIFO
-void inserir_fila(Fila* fila, char prato)
-{
-  if(fila_cheia(fila)){
-    printf("A fila está cheia!");
-  }else{
-    // Coloca o prato em dados, a partir da posição atual de tamanho e incrementa 1 do tamanho
-    // Assim, o prato é adicionado no fim da fila
-    fila->dados[fila->tamanho] = prato;
-    fila->tamanho++;
-  }
-}
 
 // Exibe os pratos na fila, se houver
 void exibir_fila(Fila* fila)
@@ -42,7 +30,6 @@ void exibir_fila(Fila* fila)
   }
   // Se não, imprimie os pratos
   else{
-    printf("Pedidos: \n");
     for(int i = 0; i < fila->tamanho; i++){
         printf("%c", fila->dados[i]);
     }
