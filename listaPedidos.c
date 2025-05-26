@@ -1,10 +1,12 @@
 #include "listaPedidos.h"
 
+// Cria a lista, com o cabeça apontando para null
 void criarListaPedidos()
 {
   Pedido *cabeca = NULL;
 }
 
+// Função para anotar pedido
 void anotarPedido(Pedido **cabeca, char *prato)
 {
   Pedido *novoPedido = malloc(sizeof(Pedido));
@@ -33,6 +35,7 @@ void anotarPedido(Pedido **cabeca, char *prato)
   atual->proximo = novoPedido;
 }
 
+// Função para cancelar pedido
 void cancelarPedido(Pedido **cabeca, int indice)
 {
     if (*cabeca == NULL) {
@@ -65,6 +68,7 @@ void cancelarPedido(Pedido **cabeca, int indice)
     free(atual);
 }
 
+// Função para exibir pedidos
 void exibirPedidos(Pedido *cabeca)
 {
   if (cabeca == NULL)
@@ -90,6 +94,7 @@ void exibirPedidos(Pedido *cabeca)
   printf("-----------\n");
 }
 
+// Limpa lista de pedidos
 void limparListaPedidos(Pedido **cabeca) {
     Pedido *atual = *cabeca;
     while (atual != NULL) {

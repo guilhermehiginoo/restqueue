@@ -1,5 +1,6 @@
 #include "cardapio.h"
 
+// Cardápio
 void exibirCardapio()
 {
     printf("====== CARDÁPIO ======\n");
@@ -24,9 +25,9 @@ void exibirCardapio()
     printf("======================\n");
 }
 
-const char *escolhaCardapio(int escolhido)
+char *escolhaCardapio(int escolhido)
 {
-    const char *cardapio[15] = {"Sopa de Cebola", "Salada Caesar", "Bruschetta", "Carpaccio de Carne",
+    char *cardapio[15] = {"Sopa de Cebola", "Salada Caesar", "Bruschetta", "Carpaccio de Carne",
                                 "Camarão ao Alho", "Lasanha à bolonhesa", "Filé Mignon com fritas", "Frango grelhado com legumes",
                                 "Bacalhau à Gomes de Sá", "Risoto de Cogumelos", "Tiramisu", "Cheesecake de Frutas vermelhas", "Mousse de Chocolate",
                                 "Pudim de Leite", "Sorvete de baunilha com calda de morango"};

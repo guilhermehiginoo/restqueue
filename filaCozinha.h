@@ -16,7 +16,7 @@ typedef struct {
     int tamanho;
 } Fila;
 
-
+// Declarações das funções
 void inicializar_fila(Fila* fila);
 int fila_vazia(Fila* fila);
 int fila_cheia(Fila* fila);

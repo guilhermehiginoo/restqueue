@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 void exibirCardapio();
-const char *escolhaCardapio(int escolhido);
+char *escolhaCardapio(int escolhido);
 
 // Funções para exibir e escolher pratos do cardápio, respectivamente
 

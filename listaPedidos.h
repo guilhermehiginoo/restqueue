@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-
+// Estrutura da lista, com o dado e o ponteiro para o próximo
 typedef struct pedido {
     char prato[100];
     struct pedido *proximo;

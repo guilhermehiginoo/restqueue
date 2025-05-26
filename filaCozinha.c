@@ -2,19 +2,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Inicializa a lista, inicialmente com tamanho 0
+// Inicializa a fila, inicialmente com tamanho 0
 void inicializar_fila(Fila* fila)
 {
   fila->tamanho = 0;
 }
 
-// Retorna a lista com tamanho 0
+// Retorna a fila com tamanho 0
 int fila_vazia(Fila* fila)
 {
   return fila->tamanho == 0;
 }
 
-// Retorna a lista com tamanho máximo
+// Retorna a fila com tamanho máximo
 int fila_cheia(Fila* fila)
 {
   return fila->tamanho == TAMANHO_MAX;
@@ -55,6 +55,7 @@ void processa_fila(Fila *fila, Pedido *lista) {
     }
 }
 
+// Mesma função de incializar_fila, mudei o nome para não confundir
 void limparFilaCozinha(Fila *fila) {
     fila->tamanho = 0;
 }
