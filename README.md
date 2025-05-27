@@ -49,8 +49,5 @@ O programa exibe um menu no terminal que permite gerenciar pedidos de um restaur
 4. Cancelar todos os pedidos. CANCELAAAAAA TUDO!
 5. Listar pedidos do salão
 6. Mostrar fila da cozinha
-7. Perguntar ao garçom se já está pronto...
 0. Sair
 ```
-
-**obs: a opção 7 aparecerá somente quando a fila da cozinha não estiver vazia**
